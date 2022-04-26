@@ -5,11 +5,12 @@ import numpy as np
 from matplotlib import pyplot as plt
 from decimal import *
 
+
 #////////////////////Settings\\\\\\\\\\\\\\\\\\\\
 # A regular(non-fire) image at noon time of area for calibration:
-calibrationImageURL = "forest1.png"
+calibrationImageURL = "assets/forest1.png"
 # Fire or smoke check image:
-checkImageURL = "forest1burn1.png"
+checkImageURL = "assets/forest1burn1.png"
 
 smokeThreshold = 0.08 	# Recommended value is around ~0.1 | ~0.08 
 fireThreshold = 0.1		# Recommended value is around ~0.1 | ~0.08
@@ -20,7 +21,7 @@ resizeImageHeight = 400	# Recommended value is 400
 showPlot = True
 #\\\\\\\\\\\\\\\\\\\\Settings////////////////////
 
-print("\n########## ASB Forest Fire Detector ##########\n")
+print("\n Forest Fire Detector ##########\n")
 print("Calibration Image URL=",calibrationImageURL)
 print("Check Image URL=",checkImageURL)
 
@@ -108,9 +109,9 @@ for x in range(resizeImageWidth):   #roam every pixel,search for white pixels (w
 smokeRate = skyWhite/320000 #400*800 = 320000
 print("\nSmoke ratio: ",smokeRate)
 if(smokeRate > smokeThreshold):
-	print('Possible Fire Thread In The Sky!')
+	print('--------------------  Fire Thread Detected In The Sky! -------------------')
 else:
-	print("No Thread Detected In The Sky.")
+	print("---------------------- No Smoke Detected In The Sky. ---------------------------")
 
 #*****GROUND(Fire)*****
 groundWhite = 0
@@ -122,9 +123,9 @@ for x in range(resizeImageWidth):   #roam every pixel,search for white pixels (w
 fireRate = groundWhite/320000 #400*800 = 320000
 print("\nFlame ratio: ",fireRate)
 if(fireRate > fireThreshold):
-	print('Possible Fire Thread On The Ground!')
+	print('-------------------------- Fire Detected On The Ground! ----------------------')
 else:
-	print("No Thread Detected On The Ground.")
+	print("--------------------- No Fire Detected On The Ground. --------------------")
 
 
 
