@@ -15,8 +15,8 @@ url = "https://www.youtube.com/watch?v=5hghT1W33cY"
 
 videoPafy = pafy.new(url)
 best = videoPafy.getbest(preftype="mp4")
-video = cv2.VideoCapture(best.url)
-# video = cv2.VideoCapture(0)
+# video = cv2.VideoCapture(best.url)
+video = cv2.VideoCapture(0)
 print('Press q to quit')
 
 i=0
